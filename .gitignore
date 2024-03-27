@@ -3,3 +3,6 @@ variablestestelocal.tf
 .terraform.lock.hcl
 .terraform*
 .gitlab-ci_teste.yml
+.gitlab-ci copy.yml
+variablesteste
+terraform.tfstate*

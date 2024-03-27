@@ -1,26 +1,22 @@
----
 - hosts: all
   become: yes
   tasks:
-    - name: Atualiza o cache do apt (para sistemas baseados em Debian)
-      apt:
-        update_cache: yes
+  - name: Atualiza os pacotes APT
+    apt:
+      update_cache: yes
 
-    - name: Instala o Python e o pip (para sistemas baseados em Debian)
-      apt:
-        name: "{{ item }}"
-        state: latest
-      loop:
-        - python3
+  - name: Instala o Python e o Flask
+    apt:
+      name:
         - python3-pip
+        - python3-flask
+      state: present
 
-    - name: Clona o repositório da aplicação e instala as dependências
-      git:
-        repo: 'URL_do_seu_repositório_Git'
-        dest: '/path/to/your/app'
-      notify:
-        - start application
+  - name: Copia o projeto para a instância
+    copy:
+      src: ./app/
+      dest: /app
 
-  handlers:
-    - name: start application
-      command: python /path/to/your/app/app.py
+  - name: Instala as dependências do Python
+    pip:
+      requirements: /seu_projeto/requirements.txt

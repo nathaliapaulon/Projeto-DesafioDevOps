@@ -31,6 +31,9 @@ Testes iniciados com o terraform pronto, localmente utilizando o terraform init,
 26/03 - 23h49
 Tentando rodar o pipeline, mas retornando erro, tentando testar somente o terraform, sem o ansible para verificar se roda corretamente.
 
+27/04 - 08h42
+Tentando alterar o pipeline, pois está retornando erro.
+
 
 
 

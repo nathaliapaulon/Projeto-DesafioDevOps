@@ -24,8 +24,7 @@ provision:
     - terraform init
     - terraform apply -auto-approve -var="docker_image_name=$DOCKER_IMAGE_NAME"
     - terraform output instance_public_dns > public_dns
-    - echo "[webservers]
-$(cat public_dns)" > inventory.ini
+    - printf "[webservers]\n%s" "$(cat public_dns)" > inventory.ini
 
 deploy:
  stage: deploy

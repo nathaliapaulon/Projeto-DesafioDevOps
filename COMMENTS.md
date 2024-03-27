@@ -28,6 +28,9 @@ Tenho mais conhecimento em AWS Cloudwatch, Grafana já trabalhei, mas já estava
 26/03 - 23h24
 Testes iniciados com o terraform pronto, localmente utilizando o terraform init, terraform plan está funcionando.
 
+26/03 - 23h49
+Tentando rodar o pipeline, mas retornando erro, tentando testar somente o terraform, sem o ansible para verificar se roda corretamente.
+
 
 
 

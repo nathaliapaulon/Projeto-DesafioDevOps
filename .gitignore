@@ -2,3 +2,4 @@ terraform.tfvars
 variablestestelocal.tf
 .terraform.lock.hcl
 .terraform*
+.gitlab-ci_teste.yml

@@ -19,4 +19,4 @@
 
   - name: Instala as dependências do Python
     pip:
-      requirements: /seu_projeto/requirements.txt
+      requirements: /app/requirements.txt

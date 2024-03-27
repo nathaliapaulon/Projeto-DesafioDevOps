@@ -5,7 +5,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copia o arquivo de requisitos do projeto para o container
-COPY . .
+COPY ./app/ ./
 
 # Instala as dependências listadas no arquivo requirements.txt
 RUN pip install -r requirements.txt
@@ -16,4 +16,4 @@ EXPOSE 8000
 # Comando para iniciar a aplicação com o gunicorn
 # O log level é definido como debug para facilitar a depuração
 # O comando aponta para o módulo api dentro do projeto, que contém a aplicação Flask
-CMD ["gunicorn", "--log-level", "debug", "--bind", "0.0.0.0:8000", "app:app"]
+CMD gunicorn --log-level debug --bind 0.0.0.0:8000 api:app

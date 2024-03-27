@@ -34,6 +34,14 @@ Tentando rodar o pipeline, mas retornando erro, tentando testar somente o terraf
 27/04 - 08h42
 Tentando alterar o pipeline, pois está retornando erro.
 
+27/04 - 17h28
+Mudei algumas coisas no arquivo de pipeline. Mudei o dockerfile, pois antes estava dando erro. Fiz uns testes locais e agora está ok.
+Agora preciso ajustar tudo pro pipeline funcionar, visto que não tenho muito conhecimento de ansible e também na hora de integrar tudo um pouco de dificuldades, visto que estudei as ferramentas separadamente, na hora de utilizar tudo junto é um pouco complexo para mim.
+
+
+
+
+
 
 
 

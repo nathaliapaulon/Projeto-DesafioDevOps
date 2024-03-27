@@ -6,3 +6,5 @@ variablestestelocal.tf
 .gitlab-ci copy.yml
 variablesteste
 terraform.tfstate*
+._*
+app/.python-version

@@ -3,17 +3,17 @@ Como não tenho muita experiência, somente estudos/cursos, não tenho conhecime
 
 Obs: Para um projeto mais "limpo" vou evitar ficar utilizando muitos commits.
 
-- Automação da infra, provisionamento dos hosts (IaaS)
+1 Automação da infra, provisionamento dos hosts (IaaS)
 Aqui utilizarei EC2 via terraform, até o momento é a única forma que conheço de automação de infra.
 Se não fosse necessário utilizar IaaS poderia utilizar AWS Beanstalk ou ECS com Fargate.
 
-- Automação de setup e configuração dos hosts (IaC)
+2 Automação de setup e configuração dos hosts (IaC)
 Aqui única ferramenta que conheço no momento e que pode fazer o que está sendo pedido é o Ansible.
 
-- Pipeline de deploy automatizado
+3 Pipeline de deploy automatizado
 Aqui poderia utilizar gitlab, github actions, jenkins, mas até o momento tenho conhecimento suficiente para utilizar gitlab.
 
-- Monitoramento dos serviços e métricas da aplicação
+4 Monitoramento dos serviços e métricas da aplicação
 Aqui poderia utilizar o próprio AWS Cloudwatch, mas também Prometheus com Grafana, estou pensando qual opção irei utilizar.
 Tenho mais conhecimento em AWS Cloudwatch, Grafana já trabalhei, mas já estava todo configurado, prometheus tenho um curso básico.
 

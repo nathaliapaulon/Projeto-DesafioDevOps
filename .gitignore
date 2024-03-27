@@ -1,0 +1,4 @@
+terraform.tfvars
+variablestestelocal.tf
+.terraform.lock.hcl
+.terraform*

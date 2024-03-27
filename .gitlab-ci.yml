@@ -3,7 +3,9 @@ stages:
   - deploy
 
 variables:
-  TF_STATE_NAME: "terraform.tfstate"
+  TF_VAR_aws_access_key: $AWS_ACCESS_KEY_ID
+  TF_VAR_aws_secret_key: $AWS_SECRET_ACCESS_KEY
+  TF_VAR_ssh_public_key: $SSH_PUBLIC_KEY
 
 provision:
   stage: provision

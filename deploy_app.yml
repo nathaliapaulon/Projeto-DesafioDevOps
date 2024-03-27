@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Atualiza o cache do apt (para sistemas baseados em Debian)
+      apt:
+        update_cache: yes
+
+    - name: Instala o Python e o pip (para sistemas baseados em Debian)
+      apt:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - python3
+        - python3-pip
+
+    - name: Clona o repositório da aplicação e instala as dependências
+      git:
+        repo: 'URL_do_seu_repositório_Git'
+        dest: '/path/to/your/app'
+      notify:
+        - start application
+
+  handlers:
+    - name: start application
+      command: python /path/to/your/app/app.py

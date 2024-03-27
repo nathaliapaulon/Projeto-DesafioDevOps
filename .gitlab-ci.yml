@@ -1,0 +1,36 @@
+stages:
+  - provision
+  - deploy
+
+variables:
+  TF_STATE_NAME: "terraform.tfstate"
+
+provision:
+  stage: provision
+  image: hashicorp/terraform:light
+  script:
+    - terraform init
+    - terraform apply -auto-approve
+    - terraform output instance_public_dns > public_dns
+  artifacts:
+    paths:
+      - public_dns
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image: williamyeh/ansible:alpine3
+  dependencies:
+    - provision
+  before_script:
+    - apk add --update openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - cat public_dns | while read line; do ssh-keyscan -H "$line" >> ~/.ssh/known_hosts; done
+  script:
+    - ansible-playbook -i $(cat public_dns), --private-key $(echo "$SSH_PRIVATE_KEY") deploy_app.yml
+  only:
+    - main

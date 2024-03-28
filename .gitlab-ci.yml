@@ -24,7 +24,7 @@ provision:
     entrypoint: [""]
  script:
     - terraform init
-    - terraform apply -auto-approve -var="docker_image_name=$DOCKER_IMAGE_NAME"
+    - terraform apply -auto-approve -var="docker_image_name=$DOCKER_IMAGE_NAME" -var="aws_access_key=$AWS_ACCESS_KEY_ID" -var="aws_secret_key=$AWS_SECRET_ACCESS_KEY" -var="ssh_public_key=$SSH_PUBLIC_KEY"
     - terraform output instance_public_dns > public_dns
     - printf "[webservers]\n%s" "$(cat public_dns)" > inventory.ini
 

@@ -31,17 +31,18 @@ Testes iniciados com o terraform pronto, localmente utilizando o terraform init,
 26/03 - 23h49
 Tentando rodar o pipeline, mas retornando erro, tentando testar somente o terraform, sem o ansible para verificar se roda corretamente.
 
-27/04 - 08h42
+27/03 - 08h42
 Tentando alterar o pipeline, pois está retornando erro.
 
-27/04 - 17h28
+27/03 - 17h28
 Mudei algumas coisas no arquivo de pipeline. Mudei o dockerfile, pois antes estava dando erro. Fiz uns testes locais e agora está ok.
 Agora preciso ajustar tudo pro pipeline funcionar, visto que não tenho muito conhecimento de ansible e também na hora de integrar tudo um pouco de dificuldades, visto que estudei as ferramentas separadamente, na hora de utilizar tudo junto é um pouco complexo para mim.
 
-27/04 - 18h44
+27/03 - 18h44
 No pipeline está retornando um erro no momento do terraform, tentando resolver adicionando uma linha após "image"
 
-
+27/03 - 22h17
+Estou tentando editar o arquivo do pipeline, pois na hora do terraform está dando erro nas variáveis, tentando ajustar para dar certo.
 
 
 

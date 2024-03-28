@@ -1,22 +1,24 @@
-- hosts: all
+---
+- name: Implantar imagem Docker e executar API
+  hosts: apidesafio
   become: yes
+
   tasks:
-  - name: Atualiza os pacotes APT
-    apt:
-      update_cache: yes
+    - name: Instalar Docker
+      ansible.builtin.package:
+        name: docker
+        state: present
 
-  - name: Instala o Python e o Flask
-    apt:
-      name:
-        - python3-pip
-        - python3-flask
-      state: present
+    - name: Extrair imagem do Docker
+      docker_image:
+        name: nathaliapaulon/appdevops:latest
+        source: pull
 
-  - name: Copia o projeto para a instância
-    copy:
-      src: ./app/
-      dest: /app
-
-  - name: Instala as dependências do Python
-    pip:
-      requirements: /app/requirements.txt
+    - name: Execute o Docker Container para API
+      docker_container:
+        name: appdevops_api
+        image: nathaliapaulon/appdevops:latest
+        state: started
+        restart_policy: unless-stopped
+        published_ports:
+          - "8000:8000"

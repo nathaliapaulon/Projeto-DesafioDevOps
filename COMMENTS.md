@@ -53,6 +53,8 @@ Consegui fazer o pipeline funcionar, passou da parte das variáveis, concluiu o 
 28/03 - 17h48
 Como não estou conseguindo via pipeline funcionar a configuração do host via ansible. Vou tirar a parte do ansible e fazer separado provavelmente. Infelizmente tenho pouco conhecimento em ansible no geral. Nunca tinha precisado utilizar.
 
+28/03 - 19h10
+Tirei o ansible do pipeline e vou tentar executar o ansible separadamente, menos automatizado, mas como não estou conseguindo no pipeline por falta de conhecimento, vai ser a única forma.
 
 
 

@@ -8,3 +8,4 @@ variablesteste
 terraform.tfstate*
 ._*
 app/.python-version
+deploy_app

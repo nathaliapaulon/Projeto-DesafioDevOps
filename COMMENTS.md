@@ -44,6 +44,15 @@ No pipeline está retornando um erro no momento do terraform, tentando resolver 
 27/03 - 22h17
 Estou tentando editar o arquivo do pipeline, pois na hora do terraform está dando erro nas variáveis, tentando ajustar para dar certo.
 
+27/03 - 22h33
+Ainda na tentativa de arrumar o pipeline que continua dando erro no terraform nas variáveis.
+
+27/03 - 23h50
+Consegui fazer o pipeline funcionar, passou da parte das variáveis, concluiu o pipeline com sucesso, mas depois na parte do ansible ele não conseguiu localizar o ip do host que foi criado pelo terraform e não fez a configuração necessária da api no host.
+
+28/03 - 17h48
+Como não estou conseguindo via pipeline funcionar a configuração do host via ansible. Vou tirar a parte do ansible e fazer separado provavelmente. Infelizmente tenho pouco conhecimento em ansible no geral. Nunca tinha precisado utilizar.
+
 
 
 

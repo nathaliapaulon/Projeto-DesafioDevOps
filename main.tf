@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_instance" "app_instance" {
   ami           = "ami-0c101f26f147fa7fd"
   instance_type = "t2.micro"
-  key_name      = "appdevops"
+  key_name      = "appdevops1"
 
   tags = {
     Name = "AppDevOps"

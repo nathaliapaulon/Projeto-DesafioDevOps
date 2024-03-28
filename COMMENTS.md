@@ -56,5 +56,20 @@ Como não estou conseguindo via pipeline funcionar a configuração do host via 
 28/03 - 19h10
 Tirei o ansible do pipeline e vou tentar executar o ansible separadamente, menos automatizado, mas como não estou conseguindo no pipeline por falta de conhecimento, vai ser a única forma.
 
+28/03 - 19h50
+Após pesquisar via chatgpt como poderia fazer via ansible separadamente, fiz os arquivos deploy_app.yml, inventory.ini e fiz com sucesso o deploy da api.
+![alt text](image.png)
+
+Teste feito pelo curl
+![alt text](image-1.png)
+
+---
+
+28/03 - 19h58
+A parte da containerização está feita, tudo que eu podia automatizar foi feito, não consegui fazer com o ansible via pipeline, mas me falta conhecimento.
+Enviado para o gitlab os arquivos - Dockerfile, Terraform (main.tf, variables.tf), Ansible (deploy_app.yml e inventory.ini, mas não foram utilizados, somente para documentar), e o arquivo de pipeline (.gitlab-ci.yml)
+No pipeline ele constrói a imagem docker da aplicação, e cria a infraestrutura necessária na AWS usando o Terraform.
+
+
 
 

@@ -1,24 +1,40 @@
 ---
-- name: Implantar imagem Docker e executar API
-  hosts: apidesafio
+- name: Configurar Docker no Amazon Linux 2023
+  hosts: all
   become: yes
-
   tasks:
-    - name: Instalar Docker
-      ansible.builtin.package:
+    - name: Atualizar pacotes e cache do yum
+      ansible.builtin.yum:
+        name: '*'
+        state: latest
+
+    - name: Instalar o Docker
+      ansible.builtin.yum:
         name: docker
         state: present
 
-    - name: Extrair imagem do Docker
-      docker_image:
-        name: nathaliapaulon/appdevops:latest
-        source: pull
-
-    - name: Execute o Docker Container para API
-      docker_container:
-        name: appdevops_api
-        image: nathaliapaulon/appdevops:latest
+    - name: Iniciar o serviço Docker
+      ansible.builtin.service:
+        name: docker
         state: started
-        restart_policy: unless-stopped
-        published_ports:
-          - "8000:8000"
+        enabled: yes
+
+    - name: Adicionar o usuário ec2-user ao grupo docker
+      ansible.builtin.user:
+        name: ec2-user
+        groups: docker
+        append: yes
+
+    - name: Fazer o pull da imagem Docker
+      ansible.builtin.command: docker pull nathaliapaulon/appdevops:latest
+
+    - name: Executar a imagem Docker com mapeamento de portas
+      ansible.builtin.command: docker run -d --restart always -p 8000:8000 nathaliapaulon/appdevops:latest
+
+    - name: Verificar se o contêiner está rodando
+      ansible.builtin.command: docker ps
+      register: docker_ps_output
+
+    - name: Mostrar a saída do comando docker ps
+      ansible.builtin.debug:
+        var: docker_ps_output.stdout_lines

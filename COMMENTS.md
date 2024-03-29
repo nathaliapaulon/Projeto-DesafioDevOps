@@ -70,6 +70,8 @@ A parte da containerização está feita, tudo que eu podia automatizar foi feit
 Enviado para o gitlab os arquivos - Dockerfile, Terraform (main.tf, variables.tf), Ansible (deploy_app.yml e inventory.ini, mas não foram utilizados, somente para documentar), e o arquivo de pipeline (.gitlab-ci.yml)
 No pipeline ele constrói a imagem docker da aplicação, e cria a infraestrutura necessária na AWS usando o Terraform.
 
+28/03 - 20h08
+Tinha me esquecido a parte de monitoramento que foi pedido, vou verificar até que ponto posso utilizar Cloudwatch e ver a possibilidade do prometheus.
 
-
-
+29/03 - 17h43
+Quis tentar novamente adicionar o ansible ao pipeline após fazer uma pesquisa e pensar em como poderia ficar

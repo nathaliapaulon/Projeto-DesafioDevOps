@@ -75,3 +75,9 @@ Tinha me esquecido a parte de monitoramento que foi pedido, vou verificar até q
 
 29/03 - 17h43
 Quis tentar novamente adicionar o ansible ao pipeline após fazer uma pesquisa e pensar em como poderia ficar
+
+29/03 - 22h16
+Não consegui fazer funcionar o ansible via pipeline, tentei de várias formas, mas me falta conhecimento mesmo. Vou agora focar na parte de monitoramento.
+
+30/03 - 17h40
+Comecei a fazer o diagrama, para depois continuar no monitoramento que vou tentar utilizar o Prometheus.

@@ -27,9 +27,23 @@
 
     - name: Fazer o pull da imagem Docker
       ansible.builtin.command: docker pull nathaliapaulon/appdevops:latest
+    
+    - name: Criar rede nomeada personalizada
+      ansible.builtin.docker_network:
+        name: bridge
+        state: present
+      when: criar_rede | default(true)
 
-    - name: Executar a imagem Docker com mapeamento de portas
-      ansible.builtin.command: docker run -d --restart always -p 8000:8000 nathaliapaulon/appdevops:latest
+    - name: Executar a imagem Docker com mapeamento de portas e especificar a rede
+      ansible.builtin.docker_container:
+        name: meu_app_devops
+        image: nathaliapaulon/appdevops:latest
+        state: started
+        restart_policy: always
+        published_ports:
+          - "8000:8000"
+        networks:
+          - name: bridge
 
     - name: Verificar se o contêiner está rodando
       ansible.builtin.command: docker ps

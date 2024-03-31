@@ -81,3 +81,9 @@ Não consegui fazer funcionar o ansible via pipeline, tentei de várias formas, 
 
 30/03 - 17h40
 Comecei a fazer o diagrama, para depois continuar no monitoramento que vou tentar utilizar o Prometheus.
+
+31/03 - 00h34
+Fiquei desde o final da tarde tentando fazer o Prometheus funcionar, mas os "alerts" ficavam inactive e não conseguia fazer com que funcionassem corretamente via Blabkbox e Alertmanager.
+
+31/03 - 01h02
+Pesquisei e tentei utilizar agora o Prometheus com Grafana e está funcionando.

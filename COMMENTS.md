@@ -94,3 +94,18 @@ Estou usando Prometheus, Blackbox Exporter e Grafana.
 
 31/03 - 17h24
 Fazendo alguns ajustes no monitoramento.
+
+31/03 - 18h02
+Verifiquei se realmente não conseguia utilizar o docker-compose na ec2 com Amazon Linux 2023, mas não consegui, então deixar sem o compose, não tenho tempo mais para ficar tentando, outro dia já tentei muito tempo.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Pasta Ansible -
+Está os arquivos que usei localmente para configurar o host, não consegui utilizar via pipeline.
+Via Ansible configurei o host com a imagem buildada da api, prometheus, blackbox exporter, alertmanager e grafana.
+Arquivos adicionados ao repositório para documentar.
+
+Pasta Prometheus-Blackbox-Grafana-AlertManager
+Arquivos utilizados para configurar Prometheus, Blackbox Exporter, Grafana e AlertManager.
+
+

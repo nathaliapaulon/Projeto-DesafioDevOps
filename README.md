@@ -1,3 +1,6 @@
+## Data de Conclusão
+Este projeto foi concluído em 31 de Março de 2024 às 18:00
+
 # Considerações Gerais
 
 Você deverá usar este repositório como o repo principal do projeto, i.e., todos os seus commits devem estar registrados aqui, pois queremos ver como você trabalha.

@@ -86,4 +86,11 @@ Comecei a fazer o diagrama, para depois continuar no monitoramento que vou tenta
 Fiquei desde o final da tarde tentando fazer o Prometheus funcionar, mas os "alerts" ficavam inactive e não conseguia fazer com que funcionassem corretamente via Blabkbox e Alertmanager.
 
 31/03 - 01h02
-Pesquisei e tentei utilizar agora o Prometheus com Grafana e está funcionando.
+Pesquisei e tentei utilizar agora o Prometheus, com Grafana e está funcionando.
+
+31/03 - 12h13
+Passei a manhã toda vendo essa parte de monitoramento, achei dashboard prontos que não sabia que existiam em https://grafana.com/grafana/dashboards/?search=Blackbox+Exporter 
+Estou usando Prometheus, Blackbox Exporter e Grafana.
+
+31/03 - 17h24
+Fazendo alguns ajustes no monitoramento.

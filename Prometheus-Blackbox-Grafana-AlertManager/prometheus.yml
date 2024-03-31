@@ -2,30 +2,32 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'prometheus'
-    static_configs:
-      - targets: ['localhost:9090']
-
   - job_name: 'blackbox'
     metrics_path: /probe
     params:
       module: [http_2xx] # Nome do módulo definido em blackbox.yml
     static_configs:
       - targets:
-          - http://172.17.0.2:8000/api/comment/list/1
-          - http://172.17.0.2:8000/api/comment/list/2
+          - 'http://172.17.0.6:8000/api/comment/list/1'  # Primeira URL
+        labels:
+          url: 'http://172.17.0.6:8000/api/comment/list/1'
+      - targets:
+          - 'http://172.17.0.6:8000/api/comment/list/2'  # Segunda URL
+        labels:
+          url: 'http://172.17.0.6:8000/api/comment/list/2'
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: blackbox_exporter:9115 # Nome do serviço do Blackbox Exporter no docker-compose
+        replacement: 172.17.0.5:9115  # IP do Blackbox Exporter
+
 alerting:
   alertmanagers:
   - static_configs:
     - targets:
-      - 'host.docker.internal:9093'
+      - 'host.docker.internal:9093'  # Certifique-se de que isso está correto para sua configuração
 
 rule_files:
   - "alerts.prometheus.yaml"

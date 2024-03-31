@@ -1,7 +1,5 @@
 ---
 
-
-
 - name: Configurar Docker no Amazon Linux 2023
   hosts: all
   become: yes
@@ -87,3 +85,6 @@
     - name: Mostrar a saída do comando docker ps
       ansible.builtin.debug:
         var: docker_ps_output.stdout_lines
+
+
+

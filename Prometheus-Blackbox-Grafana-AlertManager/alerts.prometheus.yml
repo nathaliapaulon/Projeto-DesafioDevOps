@@ -17,3 +17,13 @@ groups:
     annotations:
       summary: "HTTP status code issue for {{ $labels.instance }}"
       description: "The endpoint {{ $labels.instance }} returned HTTP status code {{ $value }}."
+
+# Alerta para latência elevada da API
+  - alert: HighAPILatency
+    expr: api_request_duration_seconds{job="your_api_job", quantile="0.9"} > 1.5
+    for: 3m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Latência elevada na API ({{ $labels.instance }})"
+      description: "90% das requisições estão demorando mais de 1.5 segundos para {{ $labels.instance }} nos últimos 3 minutos."

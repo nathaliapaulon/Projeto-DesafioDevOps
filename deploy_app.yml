@@ -1,4 +1,7 @@
 ---
+
+
+
 - name: Configurar Docker no Amazon Linux 2023
   hosts: all
   become: yes
@@ -25,27 +28,59 @@
         groups: docker
         append: yes
 
-    - name: Fazer o pull da imagem Docker
-      ansible.builtin.command: docker pull nathaliapaulon/appdevops:latest
-    
-    - name: Criar rede nomeada personalizada
-      ansible.builtin.docker_network:
-        name: bridge
-        state: present
-      when: criar_rede | default(true)
-
-    - name: Executar a imagem Docker com mapeamento de portas e especificar a rede
-      ansible.builtin.docker_container:
+    - name: Fazer o pull e rodar a imagem Docker da aplicação
+      community.docker.docker_container:
         name: meu_app_devops
         image: nathaliapaulon/appdevops:latest
-        state: started
         restart_policy: always
-        published_ports:
+        ports:
           - "8000:8000"
-        networks:
-          - name: bridge
+        state: started
 
-    - name: Verificar se o contêiner está rodando
+    - name: Fazer o pull e rodar o contêiner do Prometheus
+      community.docker.docker_container:
+        name: prometheus
+        image: prom/prometheus:latest
+        restart_policy: always
+        ports:
+          - "9090:9090"
+        volumes:
+          - /etc/docker-compose/prometheus.yml:/etc/prometheus/prometheus.yml
+          - /etc/docker-compose/alerts.prometheus.yaml:/etc/prometheus/alerts.prometheus.yaml
+        state: started
+
+    - name: Fazer o pull e rodar o contêiner do Blackbox Exporter
+      community.docker.docker_container:
+        name: blackbox_exporter
+        image: prom/blackbox-exporter:latest
+        restart_policy: always
+        ports:
+          - "9115:9115"
+        volumes:
+          - /etc/docker-compose/blackbox.yml:/etc/blackbox_exporter/config.yml
+        state: started
+
+    - name: Fazer o pull e rodar o contêiner do Alertmanager
+      community.docker.docker_container:
+        name: alertmanager
+        image: prom/alertmanager:latest
+        restart_policy: always
+        ports:
+          - "9093:9093"
+        volumes:
+          - /etc/docker-compose/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+        state: started
+
+    - name: Fazer o pull e rodar o contêiner do Grafana
+      community.docker.docker_container:
+        name: grafana
+        image: grafana/grafana:latest
+        restart_policy: always
+        ports:
+          - "3000:3000"
+        state: started
+
+    - name: Verificar se os contêineres estão rodando
       ansible.builtin.command: docker ps
       register: docker_ps_output
 

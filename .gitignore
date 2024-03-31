@@ -10,3 +10,4 @@ terraform.tfstate*
 app/.python-version
 deploy_app
 inventory.txt
+docker-compose
